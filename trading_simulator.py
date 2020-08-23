@@ -11,7 +11,6 @@ def main():
     lp_2_gateway = deque()
     ob_2_ts = deque()
     ts_2_om = deque()
-    ms_2_om = deque()
     om_2_ts = deque()
     gw_2_om = deque()
     om_2_gw = deque()
@@ -23,6 +22,7 @@ def main():
     om = OrderManager(ts_2_om, om_2_ts, om_2_gw, gw_2_om)
 
     lp.read_tick_data_from_data_source()
+
     while len(lp_2_gateway) > 0:
         ob.handle_order_from_gateway()
         ts.handle_input_from_bb()

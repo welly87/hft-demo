@@ -73,7 +73,7 @@ class TradingStrategy:
         else:
             if len(self.ob_2_ts) > 0:
                 self.handle_book_event(self.ob_2_ts.popleft())
-                self.handle_book_event(be)
+                self.handle_book_event(book_event)
 
     def handle_book_event(self, book_event):
         if book_event is not None:

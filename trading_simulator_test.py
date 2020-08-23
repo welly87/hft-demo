@@ -18,7 +18,7 @@ class TestTradingSimulation(unittest.TestCase):
         self.gw_2_om = deque()
         self.om_2_gw = deque()
 
-        self.liqudityProvider = LiquidityProvider(self.lp_2_gateway)
+        self.liquidityProvider = LiquidityProvider(self.lp_2_gateway)
         self.bookBuilder = OrderBook(self.lp_2_gateway, self.ob_2_ts)
         self.tradingStrategy = TradingStrategy(self.ob_2_ts, self.ts_2_om, self.om_2_ts)
         self.marketSimulator = MarketSimulator(self.om_2_gw, self.gw_2_om)
@@ -35,7 +35,7 @@ class TestTradingSimulation(unittest.TestCase):
         }
 
         # Add Order from Gateway
-        self.liqudityProvider.insert_manual_order(order1)
+        self.liquidityProvider.insert_manual_order(order1)
         self.assertEqual(len(self.lp_2_gateway), 1)
 
         # Book Builder
@@ -54,7 +54,7 @@ class TestTradingSimulation(unittest.TestCase):
             'side': 'ask',
             'action': 'new'
         }
-        self.liqudityProvider.insert_manual_order(order2.copy())
+        self.liquidityProvider.insert_manual_order(order2.copy())
         self.assertEqual(len(self.lp_2_gateway), 1)
 
         self.bookBuilder.handle_order_from_gateway()

@@ -1,5 +1,6 @@
 import unittest
-# from chapter7.TradingStrategy import TradingStrategy
+from collections import deque
+
 from trading_strategy import TradingStrategy
 
 
